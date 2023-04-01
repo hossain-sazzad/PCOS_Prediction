@@ -14,6 +14,68 @@ function Home() {
   const [fL, setFL] = useState(null)
   const [fR, setFR] = useState(null)
 
+  const [result, setResult] = useState(null)
+  const getPrediction = async () => {
+    console.log('getPred==============')
+    const response = await fetch('http://localhost:9090/predict', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        age: age,
+        weight: weight,
+      }),
+    })
+    const json = await response.json()
+    console.log({ json })
+    console.log('hiii' + json.res)
+    setResult(json.res)
+  }
+  if (result != null) {
+    console.log(result)
+    console.log(typeof result)
+  }
+  if (result != null && result) {
+    return (
+      <>
+        <div className={'text-center text-4xl pt-16'}>
+          Sorry You have chances of getting the diseases, please consult the
+          doctor immediately.
+        </div>
+        <div className={'text-center pt-8'}>
+          <Button
+            variant="contained"
+            size="large"
+            color="primary"
+            style={{ fontSize: '20px' }}
+            onClick={() => setResult(null)}
+          >
+            Back
+          </Button>
+        </div>
+      </>
+    )
+  }
+  if (result != null && !result) {
+    return (
+      <>
+        <div className={'text-center text-4xl pt-16'}>
+          No need to fear. You have no dangerous symptoms of this disease.
+        </div>
+        <div className={'text-center pt-8'}>
+          <Button
+            variant="contained"
+            size="large"
+            color="primary"
+            style={{ fontSize: '20px' }}
+            onClick={() => setResult(null)}
+          >
+            Back
+          </Button>
+        </div>
+      </>
+    )
+  }
+
   return (
     <>
       <h1 className={'text-center text-3xl pt-8 pb-8'}>
@@ -140,8 +202,18 @@ function Home() {
             inputProps={{ style: { fontSize: 30 } }} // font size of input text
             InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
           />
+          <div className={'pt-4 pl-72 flex-row items-center'}>
+            <Button
+              variant="contained"
+              size="large"
+              color="primary"
+              style={{ fontSize: '20px' }}
+              onClick={getPrediction}
+            >
+              Submit
+            </Button>
+          </div>
         </div>
-        <Button type={'submit'} text={'Calculate'} size={'medium'} />
       </div>
     </>
   )

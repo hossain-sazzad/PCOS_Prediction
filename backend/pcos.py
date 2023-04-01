@@ -333,9 +333,11 @@ print(prediction)
 from flask import Flask, jsonify, request
 import pandas as pd
 import json
+from flask_cors import CORS
 
 
 app = Flask('ml')
+CORS(app)
 
 # @app.route('/', methods=['GET'])
 # def predict():
@@ -348,8 +350,9 @@ def predict_pcos():
     weight = request.json['weight']
 
     response = {
-        "res": True
+        "res": False
     };
+    print("age" + age)
     return json.dumps(response)
 
 if __name__ == "__main__":
