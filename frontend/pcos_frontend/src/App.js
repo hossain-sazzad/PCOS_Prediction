@@ -1,34 +1,29 @@
-import logo from './logo.svg'
 import './App.css'
-import Button from '@mui/material/Button'
-import {
-  AppBar,
-  Backdrop,
-  Box,
-  CircularProgress,
-  Paper,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import Home from './home'
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
+import Pcos_calc from './pcos_calc'
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <AppBar position="static">
         <Toolbar>
           <Box display="flex" justifyContent="center" width="100%">
-            <div className={'pr-8 hover:text-gray-50 cursor-pointer'}>
-              <Typography variant="h4">Health Care</Typography>
+            <div className={'pr-8 hover:text-gray-50 text-2xl cursor-pointer'}>
+              <NavLink to="/">Health Care</NavLink>
             </div>
-            <div className={'pr-8 hover:text-gray-50 cursor-pointer'}>
-              <Typography variant="h4">PCOS Prediction</Typography>
+            <div className={'pr-8 hover:text-gray-50 text-2xl cursor-pointer'}>
+              <NavLink to="/pcos">PCOS Prediction</NavLink>
             </div>
           </Box>
         </Toolbar>
       </AppBar>
-      <Home />
-    </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/pcos" element={<Pcos_calc />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
