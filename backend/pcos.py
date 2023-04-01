@@ -310,8 +310,20 @@ Model = StackingClassifier(estimators=estimators, final_estimator=LogisticRegres
 Model.fit(X_train_ros,y_train_ros).score(X_test,y_test)
 first_row = X.iloc[[2]]
 
+# print(X.columns)
+print("=========")
+print(X.iloc[[1]])
+prediction1 = Model.predict(X.iloc[[1]])
+print(prediction1)
+X.loc[1, ' Age (yrs)'] = 1
+print("=========")
+print(X.iloc[[1]])
+
+# print(X.loc[1])
+# myDf = pd.DataFrame([param])
 # Get the prediction for the first row using your trained model
-prediction = Model.predict(first_row)
+prediction = Model.predict(X.iloc[[1]])
+
 
 # Print the prediction
 print(prediction)
@@ -325,11 +337,11 @@ import json
 
 app = Flask('ml')
 
-@app.route('/', methods=['GET'])
-def predict():
-    return "tk tk tk"
+# @app.route('/', methods=['GET'])
+# def predict():
+#     return "tk tk tk"
 
-# Endpoint to create a new guide
+# # Endpoint to create a new guide
 @app.route('/predict', methods=["POST"])
 def predict_pcos():
     age = request.json['age']
