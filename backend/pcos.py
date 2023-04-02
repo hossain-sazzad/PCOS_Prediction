@@ -357,16 +357,23 @@ def predict_pcos():
     ('fL', 'Avg. F size (L) (mm)'),
     ('pimple', 'Pimples(Y/N)') ]
 
+    baseRow = 2
     for param in params:
         try:        
             val = request.json[param[0]]
             print('param ' + param[0] + ' ---> ' + val)
             if val is not None:
-                X.loc[3, param[1]] = val
+                X.loc[baseRow, param[1]] = val
         except:
             pass
 
-    prediction = Model.predict(X.iloc[[30]])
+    # print("res")
+    # print(Model.predict(X.iloc[[2]]))
+    # for i in range(1,500):
+    #     pred = Model.predict(X.iloc[[i]])
+    #     print(i)
+    #     print(pred)
+    prediction = Model.predict(X.iloc[[baseRow]])
     print(prediction)
     response = {
         "res": True if prediction > 0 else False
