@@ -346,13 +346,32 @@ CORS(app)
 # # Endpoint to create a new guide
 @app.route('/predict', methods=["POST"])
 def predict_pcos():
-    age = request.json['age']
-    weight = request.json['weight']
+    params = [('age', ' Age (yrs)'),
+    ('weight', 'Weight (Kg)'),
+    ('height', 'Height(Cm) '),
+    ('bmi', 'BMI'),
+    ('pulse', 'Pulse rate(bpm) '),
+    ('fosL', 'Follicle No. (L)'), 
+    ('fosR', 'Follicle No. (R)'),
+    ('fR', 'Avg. F size (R) (mm)'),
+    ('fL', 'Avg. F size (L) (mm)'),
+    ('pimple', 'Pimples(Y/N)') ]
 
+    for param in params:
+        try:        
+            val = request.json[param[0]]
+            print('param ' + param[0] + ' ---> ' + val)
+            if val is not None:
+                X.loc[3, param[1]] = val
+        except:
+            pass
+
+    prediction = Model.predict(X.iloc[[30]])
+    print(prediction)
     response = {
-        "res": False
+        "res": True if prediction > 0 else False
     };
-    print("age" + age)
+    # print("res " + prediction + " " + response)
     return json.dumps(response)
 
 if __name__ == "__main__":
