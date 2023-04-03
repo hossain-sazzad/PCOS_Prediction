@@ -13,7 +13,9 @@ function Home() {
   const [fosR, setFosR] = useState(null)
   const [fL, setFL] = useState(null)
   const [fR, setFR] = useState(null)
-
+  // 2 --> P
+  // 3 --> !P
+  const [baseRow, setBaseRow] = useState(3)
   const [result, setResult] = useState(null)
   const getPrediction = async () => {
     console.log('getPred==============')
@@ -24,6 +26,7 @@ function Home() {
         age,
         weight,
         height,
+        baseRow,
       }),
     })
     const json = await response.json()
@@ -89,6 +92,7 @@ function Home() {
           alt="My Image"
           width={700}
           height={200}
+          onClick={() => setBaseRow((prev) => 5 - prev)}
         />
         <div className={'flex flex-col p-8'}>
           <TextField

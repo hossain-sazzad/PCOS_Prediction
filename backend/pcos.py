@@ -358,6 +358,12 @@ def predict_pcos():
     ('pimple', 'Pimples(Y/N)') ]
 
     baseRow = 2
+    try:        
+        val = request.json['baseRow']
+        if val is not None:
+            baseRow = val
+    except:
+        pass
     for param in params:
         try:        
             val = request.json[param[0]]
