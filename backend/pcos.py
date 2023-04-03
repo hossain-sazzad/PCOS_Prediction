@@ -364,11 +364,12 @@ def predict_pcos():
             baseRow = val
     except:
         pass
+    print(baseRow)
     for param in params:
         try:        
             val = request.json[param[0]]
             print('param ' + param[0] + ' ---> ' + val)
-            if val is not None:
+            if val is not None and val is not '':
                 X.loc[baseRow, param[1]] = val
         except:
             pass
@@ -379,7 +380,12 @@ def predict_pcos():
     #     pred = Model.predict(X.iloc[[i]])
     #     print(i)
     #     print(pred)
-    prediction = Model.predict(X.iloc[[baseRow]])
+    prediction = 0
+    try:
+        prediction = Model.predict(X.iloc[[baseRow]])
+        print("no error")
+    except:
+        pass
     print(prediction)
     response = {
         "res": True if prediction > 0 else False

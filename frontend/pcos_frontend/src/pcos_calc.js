@@ -19,20 +19,30 @@ function Home() {
   const [result, setResult] = useState(null)
   const getPrediction = async () => {
     console.log('getPred==============')
-    const response = await fetch('http://localhost:9090/predict', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        age,
-        weight,
-        height,
-        baseRow,
-      }),
-    })
-    const json = await response.json()
-    console.log({ json })
-    console.log('hiii' + json.res)
-    setResult(json.res)
+    try {
+      const response = await fetch('http://localhost:9090/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          age,
+          weight,
+          height,
+          bmi,
+          pulse,
+          pimple: pimple === 'y' || pimple === 'Y' ? 1 : 0,
+          fosL,
+          fosR,
+          fL,
+          fR,
+          baseRow,
+        }),
+      })
+      const json = await response.json()
+      setResult(json.res)
+    } catch (error) {
+      console.log('network error')
+      setResult(0)
+    }
   }
   if (result != null) {
     console.log(result)
