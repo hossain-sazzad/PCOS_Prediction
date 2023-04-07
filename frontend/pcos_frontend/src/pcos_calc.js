@@ -97,14 +97,16 @@ function Home() {
       </h1>
       <div className={'flex flex-col justify-center'}>
         <div className={'flex flex-row gap-24 pr-48 justify-center'}>
-          <img
-            className={'pl-4'}
-            src={process.env.PUBLIC_URL + '/pcos_form.png'}
-            alt="My Image"
-            width={400}
-            height={20}
-            onClick={() => setBaseRow((prev) => 5 - prev)}
-          />
+          <div className={'max-h-1 max-w-sm'}>
+            <img
+              className={'pl-4'}
+              src={process.env.PUBLIC_URL + '/pcos_form.png'}
+              alt="My Image"
+              width={500}
+              height={20}
+              onClick={() => setBaseRow((prev) => 5 - prev)}
+            />
+          </div>
           <div className={'flex flex-col p-8'}>
             <TextField
               id="age"
