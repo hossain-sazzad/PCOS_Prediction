@@ -8,11 +8,11 @@ function Home() {
         <img
           src={process.env.PUBLIC_URL + '/home_1.jpg'}
           alt="My Image"
-          width={1500}
+          width={1700}
           height={200}
         />
       </div>
-      <div className="flex justify-center pl-4 pr-4 pb-8 gap-16">
+      <div className="flex justify-center pl-4 pr-4 pb-8 gap-24">
         <img
           className={''}
           src={process.env.PUBLIC_URL + '/home_2.jpg'}
@@ -35,7 +35,7 @@ function Home() {
           height={200}
         />
       </div>
-      <div className="flex justify-center pl-4 pr-4 pb-8 gap-32">
+      <div className="flex justify-center pl-4 pr-4 pb-8 gap-40">
         <Box
           border={1}
           p={2}
