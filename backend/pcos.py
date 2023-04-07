@@ -26,7 +26,7 @@ data_withoutinfertility.head()
 
 data_infertility.head()
 
-df = pd.merge(data_withoutinfertility, data_infertility,suffixes={'','_y'}, on='Patient File No.', how="left",)
+df = pd.merge(data_withoutinfertility, data_infertility,suffixes=('','_y'), on='Patient File No.', how="left",)
 
 df.head()
 

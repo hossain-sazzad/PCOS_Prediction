@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 function Home() {
   return (
     <>
-      <div className="flex flex-col items-center pt-8 pb-8 ">
+      <div className="flex flex-col items-center pt-8 pb-16 ">
         <img
           src={process.env.PUBLIC_URL + '/home_1.jpg'}
           alt="My Image"
@@ -12,7 +12,7 @@ function Home() {
           height={200}
         />
       </div>
-      <div className="flex justify-center pl-4 pr-4 pb-8">
+      <div className="flex justify-center pl-4 pr-4 pb-8 gap-16">
         <img
           className={''}
           src={process.env.PUBLIC_URL + '/home_2.jpg'}
@@ -35,7 +35,7 @@ function Home() {
           height={200}
         />
       </div>
-      <div className="flex justify-center pl-4 pr-4 pb-8 gap-4">
+      <div className="flex justify-center pl-4 pr-4 pb-8 gap-32">
         <Box
           border={1}
           p={2}
