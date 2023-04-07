@@ -3,8 +3,12 @@ import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import Home from './home'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import Pcos_calc from './pcos_calc'
+import { useEffect } from 'react'
 
 function App() {
+  useEffect(() => {
+    document.title = 'PCOS Prediction'
+  }, [])
   return (
     <BrowserRouter>
       <div className={'bg-gray-100'}>
