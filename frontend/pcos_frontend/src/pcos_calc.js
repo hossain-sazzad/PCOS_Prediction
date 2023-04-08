@@ -116,8 +116,8 @@ function Home() {
               onChange={(e) => setAge(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />
             <TextField
               id="weight"
@@ -127,8 +127,8 @@ function Home() {
               onChange={(e) => setWeight(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />{' '}
             <TextField
               id="height"
@@ -138,8 +138,8 @@ function Home() {
               onChange={(e) => setHeight(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />{' '}
             <TextField
               id="bmi"
@@ -149,8 +149,8 @@ function Home() {
               onChange={(e) => setBmi(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />{' '}
             <TextField
               id="pulse"
@@ -160,8 +160,8 @@ function Home() {
               onChange={(e) => setPulse(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />
           </div>
           <div className={'flex flex-col p-8'}>
@@ -173,8 +173,8 @@ function Home() {
               onChange={(e) => setPimple(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />
             <TextField
               id="follicleL"
@@ -184,8 +184,8 @@ function Home() {
               onChange={(e) => setFosL(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />{' '}
             <TextField
               id="follicleR"
@@ -195,8 +195,8 @@ function Home() {
               onChange={(e) => setFosR(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />{' '}
             <TextField
               id="fl"
@@ -206,8 +206,8 @@ function Home() {
               onChange={(e) => setFL(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />{' '}
             <TextField
               id="fr"
@@ -217,8 +217,8 @@ function Home() {
               onChange={(e) => setFR(e.target.value)}
               margin="dense"
               variant={'outlined'}
-              inputProps={{ style: { fontSize: 30 } }} // font size of input text
-              InputLabelProps={{ style: { fontSize: 30 } }} // font size of input label
+              inputProps={{ style: { fontSize: 20 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
             />
             <div className={'pt-4 pl-72 flex-row items-center'}>
               <Button
@@ -227,6 +227,18 @@ function Home() {
                 color="primary"
                 style={{ fontSize: '20px' }}
                 onClick={getPrediction}
+                disabled={
+                  age == null ||
+                  weight == null ||
+                  height == null ||
+                  bmi == null ||
+                  pulse == null ||
+                  pimple == null ||
+                  fosL == null ||
+                  fosR == null ||
+                  fL == null ||
+                  fR == null
+                }
               >
                 Submit
               </Button>

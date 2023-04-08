@@ -8,7 +8,7 @@ function Home() {
         <img
           src={process.env.PUBLIC_URL + '/home_1.jpg'}
           alt="My Image"
-          width={1700}
+          width={1100}
           height={200}
         />
       </div>
@@ -17,29 +17,29 @@ function Home() {
           className={''}
           src={process.env.PUBLIC_URL + '/home_2.jpg'}
           alt="My Image"
-          width={500}
+          width={300}
           height={200}
         />
         <img
           className={''}
           src={process.env.PUBLIC_URL + '/home_3.jpg'}
           alt="My Image"
-          width={500}
+          width={300}
           height={200}
         />
         <img
           className={''}
           src={process.env.PUBLIC_URL + '/home_4.jpg'}
           alt="My Image"
-          width={500}
+          width={300}
           height={200}
         />
       </div>
-      <div className="flex justify-center pl-4 pr-4 pb-8 gap-40">
+      <div className="flex justify-center pl-4 pr-4 pb-8 pt-32 gap-24">
         <Box
           border={1}
           p={2}
-          maxWidth={400}
+          maxWidth={300}
           height={200}
           display="flex"
           alignItems="center"
@@ -47,7 +47,7 @@ function Home() {
         >
           <Typography
             variant="body1"
-            style={{ fontSize: '1.5rem', textAlign: 'center' }}
+            style={{ fontSize: '1rem', textAlign: 'center' }}
           >
             PCOS is recognized worldwide as the leading endocrine & metabolic
             disorder in women.
@@ -56,7 +56,7 @@ function Home() {
         <Box
           border={1}
           p={2}
-          maxWidth={400}
+          maxWidth={300}
           height={200}
           display="flex"
           alignItems="center"
@@ -65,7 +65,7 @@ function Home() {
           <Typography
             variant="body1"
             align="center"
-            style={{ fontSize: '1.5rem', textAlign: 'center' }}
+            style={{ fontSize: '1rem', textAlign: 'center' }}
           >
             PCOS cannot be cured, but the hormonal imbalance and symptoms can be
             treated.
@@ -74,7 +74,7 @@ function Home() {
         <Box
           border={1}
           p={2}
-          maxWidth={400}
+          maxWidth={300}
           height={200}
           display="flex"
           alignItems="center"
@@ -83,7 +83,7 @@ function Home() {
           <Typography
             variant="body1"
             align="center"
-            style={{ fontSize: '1.5rem', textAlign: 'center' }}
+            style={{ fontSize: '1rem', textAlign: 'center' }}
           >
             PCOS it’s hard to explain to someone who has no clue. It’s a daily
             struggle being in pain or feeling sick on the inside.
