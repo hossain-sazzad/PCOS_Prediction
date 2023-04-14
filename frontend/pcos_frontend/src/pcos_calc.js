@@ -72,15 +72,15 @@ function Home() {
   if (result != null && !result) {
     return (
       <>
-        <div className={'text-center text-4xl pt-16'}>
+        <div className={'text-center text-2xl pt-16'}>
           No need to fear. You have no dangerous symptoms of this disease.
         </div>
-        <div className={'text-center pt-8'}>
+        <div className={'text-center pt-8 pb-8'}>
           <Button
             variant="contained"
             size="large"
             color="primary"
-            style={{ fontSize: '20px' }}
+            style={{ fontSize: '12px' }}
             onClick={() => setResult(null)}
           >
             Back
@@ -92,7 +92,7 @@ function Home() {
 
   return (
     <>
-      <h1 className={'text-center text-3xl pt-8 pb-8'}>
+      <h1 className={'text-center text-2xl pt-8 pb-8'}>
         Know your Chances of Having PCOS in one Click
       </h1>
       <div className={'flex flex-col justify-center'}>
@@ -113,7 +113,7 @@ function Home() {
               label="Age (years)"
               type={'number'}
               value={age}
-              onChange={(e) => setAge(e.target.value)}
+              onChange={(e) => setAge(e.target.value < 0 ? 0 : e.target.value)}
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -124,7 +124,9 @@ function Home() {
               label="Weight (kg)"
               value={weight}
               type={'number'}
-              onChange={(e) => setWeight(e.target.value)}
+              onChange={(e) =>
+                setWeight(e.target.value < 0 ? 0 : e.target.value)
+              }
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -135,7 +137,9 @@ function Home() {
               label="Height (cm)"
               value={height}
               type={'number'}
-              onChange={(e) => setHeight(e.target.value)}
+              onChange={(e) =>
+                setHeight(e.target.value < 0 ? 0 : e.target.value)
+              }
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -146,7 +150,7 @@ function Home() {
               label="BMI"
               type={'number'}
               value={bmi}
-              onChange={(e) => setBmi(e.target.value)}
+              onChange={(e) => setBmi(e.target.value < 0 ? 0 : e.target.value)}
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -157,7 +161,9 @@ function Home() {
               label="Pulse Rate (bmp)"
               type={'number'}
               value={pulse}
-              onChange={(e) => setPulse(e.target.value)}
+              onChange={(e) =>
+                setPulse(e.target.value < 0 ? 0 : e.target.value)
+              }
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -170,7 +176,16 @@ function Home() {
               label="Pimple (Y/N)"
               type={'string'}
               value={pimple}
-              onChange={(e) => setPimple(e.target.value)}
+              onChange={(e) =>
+                setPimple(
+                  e.target.value !== 'y' &&
+                    e.target.value !== 'Y' &&
+                    e.target.value !== 'n' &&
+                    e.target.value !== 'N'
+                    ? ''
+                    : e.target.value
+                )
+              }
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -181,7 +196,7 @@ function Home() {
               label="Follicle NO (L)"
               type={'number'}
               value={fosL}
-              onChange={(e) => setFosL(e.target.value)}
+              onChange={(e) => setFosL(e.target.value < 0 ? 0 : e.target.value)}
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -192,7 +207,7 @@ function Home() {
               label="Follicle NO (R)"
               type={'number'}
               value={fosR}
-              onChange={(e) => setFosR(e.target.value)}
+              onChange={(e) => setFosR(e.target.value < 0 ? 0 : e.target.value)}
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -203,7 +218,7 @@ function Home() {
               label="Avg F.size (L)"
               type={'number'}
               value={fL}
-              onChange={(e) => setFL(e.target.value)}
+              onChange={(e) => setFL(e.target.value < 0 ? 0 : e.target.value)}
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
@@ -214,37 +229,37 @@ function Home() {
               label="Avg F.size (R)"
               type={'number'}
               value={fR}
-              onChange={(e) => setFR(e.target.value)}
+              onChange={(e) => setFR(e.target.value < 0 ? 0 : e.target.value)}
               margin="dense"
               variant={'outlined'}
               inputProps={{ style: { fontSize: 15 } }} // font size of input text
               InputLabelProps={{ style: { fontSize: 15 } }} // font size of input label
             />
-            <div className={'pt-4 pl-72 pb-16 flex-row items-center'}>
-              <Button
-                variant="contained"
-                size="large"
-                color="primary"
-                style={{ fontSize: '10px' }}
-                onClick={getPrediction}
-                disabled={
-                  age == null ||
-                  weight == null ||
-                  height == null ||
-                  bmi == null ||
-                  pulse == null ||
-                  pimple == null ||
-                  fosL == null ||
-                  fosR == null ||
-                  fL == null ||
-                  fR == null
-                }
-              >
-                Submit
-              </Button>
-            </div>
           </div>
         </div>
+      </div>
+      <div className={'text-center pb-16 pl-72 pt-8'}>
+        <Button
+          variant="contained"
+          size="large"
+          color="primary"
+          style={{ fontSize: '10px' }}
+          onClick={getPrediction}
+          disabled={
+            age == null ||
+            weight == null ||
+            height == null ||
+            bmi == null ||
+            pulse == null ||
+            pimple == null ||
+            fosL == null ||
+            fosR == null ||
+            fL == null ||
+            fR == null
+          }
+        >
+          Submit
+        </Button>
       </div>
     </>
   )
